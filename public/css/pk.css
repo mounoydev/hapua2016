@@ -94,7 +94,7 @@ hr {
     float: none;
     margin-right: 14px;
     margin-bottom: 3px;
-    width: 50%;
+    width: 45%;
 }
 .hapuahistory{
     color: #2f2f2f;
@@ -118,4 +118,17 @@ hr {
 }
 .WordSection1>table{
     width: 100%!important;
+}
+.hapuamore{
+    float: right;
+}
+.mycolor{
+    color: #2f2f2f;
+}
+.hapuacenter
+{
+    text-align: center;
+}
+.scrollToTop {
+    background-color: #226eab;
 }
