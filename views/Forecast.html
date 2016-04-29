@@ -1,0 +1,53 @@
+<div class="panel panel-info w-panel-detail" style="width: 100%">
+    <div class="panel-heading">Forecast</div>
+    <div class="panel-body">
+
+        <div class="panel-group" id="accordion">
+
+            {% for forecast in weatherdata.fw %}
+            <div class="panel panel-default">
+                <div class="panel-heading" style="background-color: black;color: white">
+                    <dev class="panel-title">
+                        <div data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                        <div class="row" style="margin-left: 5%">
+                            <div class="col-md-2 col-lg-2 col-sm-2 w-forecast">{{forecast.dayname}}</div>
+                            <div class="col-md-2 col-lg-2 col-sm-2 w-forecast">
+                                <img src="http://openweathermap.org/img/w/{{forecast.icon}}.png" style="width: 30px" class="img-responsive">
+                            </div>
+
+                            <div class="col-md-2 col-lg-2 col-sm-2 w-forecast">
+                                <span>{{forecast.temp}}°</span>
+                            </div>
+
+                            <div class="col-md-2 col-lg-2 col-sm-2 w-forecast">
+                                <span>{{forecast.temp_min}}°</span>
+                            </div>
+
+                            <div class="col-md-2 col-lg-2 col-sm-2 w-forecast">
+                                <span>{{forecast.temp_max}}°</span>
+                            </div>
+
+                            <div class="col-md-2 col-lg-2 col-sm-2 w-forecast">
+                                <span>{{forecast.pressure}} hba</span>
+                            </div>
+
+                            <div class="col-md-2 col-lg-2 col-sm-2 w-forecast">
+                                <span>{{forecast.humidity}} %</span>
+                            </div>
+
+                        </div>
+
+                        </div>
+                    </dev>
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+
+
+    </div>
+</div>
