@@ -3,6 +3,6 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('EDL', {title: 'EDL'});
+    res.render('edl', {title: 'EDL'});
 });
 module.exports = router;
