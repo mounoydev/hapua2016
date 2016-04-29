@@ -33,6 +33,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(__dirname));
 
+//app.use('/', welcome);
 app.use('/', routes);
 app.use('/welcome', welcome);
 app.use('/users', users);
