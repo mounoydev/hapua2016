@@ -19,7 +19,7 @@ function weatherapi(){
             weatherData.visibility=body.visibility/1000;
             weatherData.speed=body.wind.speed;
             weatherData.clouds=body.clouds.all;
-            var time=timeConverter(body.dt);
+            var time=getcurentime();
             weatherData.time=time;
             weatherData.country='Laos';
             weatherData.weather=body.weather[0];
@@ -45,7 +45,10 @@ getweatherapi(url, function (body) {
                 dt:body.list[0].dt,
                 dayname:getdayname(body.list[0].dt),
                 icon:body.list[0].weather[0].icon,
+                desc:body.list[0].weather[0].description,
                 temp:body.list[0].main.temp,
+                wind:body.list[0].wind.speed,
+                clouds:body.list[0].clouds.all,
                 temp_min:body.list[0].main.temp_min,
                 temp_max:body.list[0].main.temp_max,
                 pressure:body.list[0].main.pressure,
@@ -75,7 +78,10 @@ getweatherapi(url, function (body) {
                     dt:body.list[i].dt,
                     dayname:getdayname(body.list[i].dt),
                     icon:body.list[i].weather[0].icon,
+                    desc:body.list[i].weather[0].description,
                     temp:body.list[i].main.temp,
+                    wind:body.list[i].wind.speed,
+                    clouds:body.list[0].clouds.all,
                     temp_min:body.list[i].main.temp_min,
                     temp_max:body.list[i].main.temp_max,
                     pressure:body.list[i].main.pressure,
@@ -115,7 +121,7 @@ weatherapi.prototype.getcurenforecast= function (url, callback) {
 
                 curenforecast.push({
 
-                    time:dt.getHours()+' '+getAMandPM(dt.getHours()),
+                    time:getAMandPM(dt.getHours()),
                     icon:body.list[i].weather[0].icon,
                     temp:body.list[i].main.temp
 
@@ -155,9 +161,28 @@ function timeConverter(UNIX_timestamp){
 }//convert time
 
 function getAMandPM(hour){
+var stdtime=null;
+    if (hour>12){
+        stdtime=hour-12+' PM';
+    }else{
+        stdtime=hour+' AM'
+    }
 
-    var period = hour >= 12 ? 'PM' : 'AM';
-    return period;
+    return stdtime;
+}
+
+function getcurentime(){
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var dt=new Date();
+    var date=dt.getDate();
+    var month=months[dt.getMonth()];
+    var year=dt.getFullYear();
+    var hour=dt.getHours();
+    var min=dt.getMinutes();
+
+var datetimefull=date+' '+month+' '+year+' '+hour+':'+min;
+    return datetimefull;
+
 }
 
 function getweatherapi(url,callback){
