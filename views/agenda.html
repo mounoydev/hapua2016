@@ -2,8 +2,6 @@
 {% block header %}
 {% include "./views/Template/header.html" %}
 {% include "./views/Template/menu.html" %}
-
-
 {% endblock %}
 
 {% block body %}
@@ -12,9 +10,9 @@
         <div class="jumbotron newjumbotron">
             <div class="hapuahistory">
                 {% include "./views/agenda_sub.html" %}
-
             </div>
         </div>
     </div>
 </section>
+{% include "./views/Template/footer.html" %}
 {% endblock %}

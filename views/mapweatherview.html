@@ -19,7 +19,11 @@
             text-align: center;
         }
     </style>
+<<<<<<< HEAD
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5xsnsqQgnoO9cnWJlNR72KrzRCr5fd_E">
+=======
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCyRt4wKPkQSw_h6C7trfBSWVvAmAljVM">
+>>>>>>> origin/master
     </script>
     <script>
         var map;
@@ -28,15 +32,23 @@
         var gettingData = false;
         var openWeatherMapKey = "040c04b9af8e1535eb1056037f4c1c97";
 
+<<<<<<< HEAD
         var myLatlng=new google.maps.LatLng(17.963520,102.612550);
         function initialize() {
             var mapOptions = {
                 zoom: 4,
                 center: myLatlng
+=======
+        function initialize() {
+            var mapOptions = {
+                zoom: 4,
+                center: new google.maps.LatLng(50,-50)
+>>>>>>> origin/master
             };
 
             map = new google.maps.Map(document.getElementById('map-canvas'),
                     mapOptions);
+<<<<<<< HEAD
 
             //set marker
             var marker = new google.maps.Marker({
@@ -46,6 +58,8 @@
 
             marker.setMap(map);
 
+=======
+>>>>>>> origin/master
             // Add interaction listeners to make weather requests
             google.maps.event.addListener(map, 'idle', checkIfDataRequested);
 

@@ -12,6 +12,7 @@ var edl = require('./routes/edl');
 var hapua = require('./routes/hapua');
 var waether = require('./routes/waether');
 var agenda = require('./routes/agenda');
+var welcome = require('./routes/welcome');
 
 var consolidate = require('consolidate');
 var nunjucks = require('nunjucks');
@@ -32,7 +33,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(__dirname));
 
+//app.use('/', welcome);
 app.use('/', routes);
+app.use('/welcome', welcome);
 app.use('/users', users);
 app.use('/contact', contact);
 app.use('/edl', edl);
