@@ -11,21 +11,21 @@
 
 {% block body %}
 
-<div id="w-contianer" class="container">
+<div id="w-contianer" class="container-fluid">
 
 <div class="row" id="w-div-top">
 
- <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
+ <div class="col-lg-12 col-sm-12 col-md-12">
 
      <div class="row" id="w-dev-county">
-         <div class="col-md-5 col-sm-5 col-xs-5">{{weatherdata.cw.name}}</div>
+         <div class="col-md-5 col-sm-5 ">{{weatherdata.cw.name}}</div>
 
      </div>
      <div class="row">
-         <div class="col-md-5 col-xs-5 col-xs-5">Laos</div>
+         <div class="col-md-5 ">Laos</div>
      </div>
      <div class="row">
-         <div class="col-md-5 col-xs-5 col-xs-5">{{weatherdata.cw.time}}</div>
+         <div class="col-md-5 ">{{weatherdata.cw.time}}</div>
      </div>
 
  </div>
@@ -33,13 +33,13 @@
     </div>
 
     <div id="w-div-bottom" class="row w-top-main-row">
-        <div class="col-md-1 col-sm-1 col-xs-1">
+        <div class="col-md-1 col-sm-1">
             <span>
                 <img src="http://openweathermap.org/img/w/{{weatherdata.cw.weather.icon}}.png" class="img-responsive">
             </span>
             </div>
 
-            <div class="col-md-1 col-sm-1 col-xs-1">
+            <div class="col-md-1 col-sm-1">
                  <span class="" id="w-span-nameweather">
                     {{weatherdata.cw.weather.main}}
                 </span>
@@ -54,8 +54,8 @@
     </div>
 
 
-    <div class="row">
-        <div class="col-md-4 col-xs-4 col-xs-4 w-row1">
+    <div class="row w-row1" >
+        <div class="col-md-5 col-sm-5 col-lg-5">
             <div class="row">
                 {% include "./views/weartherDetail.html" %}
 
@@ -66,7 +66,7 @@
 
         </div>
 
-        <div class="col-md-5 col-xs-5 col-xs-5 w-row2">
+        <div class="col-md-6 col-sm-6 col-lg-6" style="padding-left: 5%">
 
             <div class="row">
                 {% include "./views/Forecast.html" %}

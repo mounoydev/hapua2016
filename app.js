@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var compression=require('compression');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -12,6 +13,7 @@ var edl = require('./routes/edl');
 var hapua = require('./routes/hapua');
 var waether = require('./routes/waether');
 var agenda = require('./routes/agenda');
+var welcome = require('./routes/welcome');
 
 var consolidate = require('consolidate');
 var nunjucks = require('nunjucks');
@@ -26,13 +28,16 @@ app.set('view engine', 'html');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(compression());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(__dirname));
 
+//app.use('/', welcome);
 app.use('/', routes);
+app.use('/welcome', welcome);
 app.use('/users', users);
 app.use('/contact', contact);
 app.use('/edl', edl);
